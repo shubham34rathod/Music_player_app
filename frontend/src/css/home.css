@@ -1,0 +1,122 @@
+body{
+    
+}
+.container_box1{
+    width: 100%;
+    /* height: 648px; */
+    /* background-color:aqua; */
+    background-color: rgb(31, 31, 31);
+    color: white;
+    padding-bottom: 20px;
+    /* background-image: linear-gradient(to bottom ,rgba(255, 0, 0, 0.73) ,rgb(46, 46, 46) 90%); */
+
+    & h4{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-left: 100px;
+        padding-top: 30px;
+        font-weight: 600;
+    }
+}
+.Top_10_songs{
+    width: 98%;
+    /* height: 80%; */
+    margin: auto;
+    /* border: ; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(5,15%);
+    gap: 30px;
+    background-color: rgb(46, 46, 46);
+    border-radius: 18px;
+    /* background-image: linear-gradient(to right,rgb(46, 46, 46),rgb(109, 109, 109) ,red); */
+    background-image: linear-gradient(to right,orange,red);
+    /* background-image: linear-gradient(to right ,rgba(255, 0, 0, 0.73) ,rgb(46, 46, 46) 90%); */
+}
+.cart_box{
+    /* border: 1px solid; */
+    /* height: 75%; */
+    height: 350px;
+    line-height: 10px;
+    background-color: rgb(72, 72, 72);
+    border-radius: 12px;
+    padding-bottom: 10px;
+}
+.song_img{
+    border-radius: 12px;
+    width: 100%;
+    height: 64%;
+    /* background-image: url('../images/jawan-1693838039.jpeg'); */
+    /* background-size: cover; */
+    background-color: rgb(72, 72, 72);
+    padding: 10px;
+
+    & img{
+        height: 100%;
+        width: 100%;
+        object-fit:contain;
+    }
+}
+.songInfo{
+    width: 100%;
+    height: 30%;
+    padding:10px 0px 0px 25px;
+}
+.ratingBox{
+    float: right;
+    padding-right: 10px;
+
+    & i{
+        color: orange;
+    }
+}
+.top_10_artist{
+    width: 98%;
+    background-color: rgb(46, 46, 46);
+    margin: 20px auto 20px auto;
+    border-radius: 15px;
+    padding-bottom: 20px;
+    /* background-image: linear-gradient(rgb(117, 0, 128),white); */
+}
+.artist_box{
+    width: 90%;
+    background-color: rgb(72, 72, 72);
+    margin: 10px auto 20px auto;
+    padding: 10px 10px 10px 20px;
+    border-radius: 18px;
+
+    & table{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+
+    & th{
+        height: 50px;
+    }
+
+    & td{
+        height: 40px;
+        color: rgb(180, 180, 180);
+    }
+
+    .artistName{
+        width: 20%;
+        /* border: 1px solid; */
+    }
+    .bornIn{
+        width: 20%;
+    }
+    .artist_songs{
+        width: 60%;
+    }
+}
+.play_box{
+    width: 100%;
+    height: 70px;
+    background-color: black;
+    position: fixed;
+    bottom: 0px;
+    padding: 10px 30px 0px 30px;
+}

@@ -1,0 +1,43 @@
+.logIn_box{
+    width: 100%;
+    background-color: rgb(21, 21, 21);
+    height: 708px;
+    padding-top: 100px;
+}
+.signIn{
+    width: 30%;
+    /* background-color: rgb(242, 242, 242); */
+    background-color: rgb(46, 46, 46);
+    padding: 30px;
+    /* margin: 8px auto 0px auto; */
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px gray;
+    /* margin-left: 100px; */
+    margin: auto;
+}
+.signIn a{
+    margin-left: 70px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.shopingLogo{
+    width: 30%;
+    margin: 10px auto 0px auto;
+    /* border: 1px solid; */
+    padding-left: 130px;
+}
+.logIn_txt{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    text-decoration: underline;
+}
+#shopingLog{
+    width: 180px;
+    border-radius: 100px;
+    margin: auto;
+}
+#submitBtn{
+    margin-left: 160px;
+    margin-top: 30px;
+}
