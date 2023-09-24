@@ -3,10 +3,12 @@ import {useDispatch} from 'react-redux'
 import { loginInfo } from './redux/slice/userSlice'
 import '../css/login.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 // import shopingLogo from "../images/shopingLogo.png"
 
 function Login() {
 
+    let navigate=useNavigate()
     let dispatch=useDispatch()
 
     let [user,setUser]=useState({
@@ -27,8 +29,18 @@ function Login() {
         console.log(user);
         await axios.post(`http://localhost:8000/api/login`,user)
         .then((res)=>{
-            console.log(res.data)
-            dispatch(loginInfo(res.data))
+            if(res.data==='user not exist')
+            {
+                alert('Not registered')
+                navigate('/register')
+            }
+            else
+            {
+                console.log(res.data)
+                alert('login success')
+                dispatch(loginInfo(res.data))
+                navigate('/')
+            }
         })
         .catch((error)=>console.log(error))
         
@@ -37,6 +49,7 @@ function Login() {
     return <>
         {/* <div className="shopingLogo"><img src={shopingLogo} alt="logo" id="shopingLog" /></div> */}
         <div className="logIn_box">
+            <h4>Music.Com</h4>
             <div className="signIn">
                 <h4 className='logIn_txt'>Login</h4>
                 <div class="mb-3">
@@ -51,7 +64,7 @@ function Login() {
                     <input class="btn btn-success" id="submitBtn" type="submit" value="Submit" onClick={loginFn}></input>
                 </div>
                 <br />
-                <a href="#">don't have a account? create account</a>
+                <a href="#" onClick={()=>navigate('/register')}>don't have a account? create account</a>
             </div>
         </div>
 

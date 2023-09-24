@@ -27,6 +27,7 @@ body{
     justify-content: center;
     display: grid;
     grid-template-columns: repeat(5,15%);
+    /* grid-template-rows: repeat(1,1fr); */
     gap: 30px;
     background-color: rgb(46, 46, 46);
     border-radius: 18px;
@@ -77,14 +78,17 @@ body{
     margin: 20px auto 20px auto;
     border-radius: 15px;
     padding-bottom: 20px;
+    background-image: linear-gradient(to right,orange,red);
     /* background-image: linear-gradient(rgb(117, 0, 128),white); */
 }
 .artist_box{
     width: 90%;
-    background-color: rgb(72, 72, 72);
+    background-color: rgb(240, 240, 240);
+    /* background-color: rgb(72, 72, 72); */
     margin: 10px auto 20px auto;
     padding: 10px 10px 10px 20px;
     border-radius: 18px;
+    color: black;
 
     & table{
         width: 100%;
@@ -98,7 +102,8 @@ body{
 
     & td{
         height: 40px;
-        color: rgb(180, 180, 180);
+        color: rgb(86, 86, 86);
+        /* color: rgb(180, 180, 180); */
     }
 
     .artistName{

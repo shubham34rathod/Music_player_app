@@ -3,6 +3,13 @@
     background-color: rgb(21, 21, 21);
     height: 708px;
     padding-top: 100px;
+
+    & h4{
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        margin-bottom: 30px;
+    }
 }
 .signIn{
     width: 30%;

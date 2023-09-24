@@ -68,3 +68,27 @@
     border: none;
     border-radius: 15px;
 }
+.logout_box_2{
+    border: 1px solid;
+    height: 6%;
+    width: 7%;
+    text-align: center;
+    padding-top: 5px;
+    position: absolute;
+    right: 40px;
+    top:55px;
+    z-index: 100;
+    background-color: rgb(62, 62, 62);
+    border: none;
+    border-radius: 15px;
+}
+.logout_box:hover{
+    cursor: pointer;
+}
+.logout_box_2:hover{
+    cursor: pointer;
+}
+#logOut_effect{
+    position: relative;
+    left: 120px;
+}

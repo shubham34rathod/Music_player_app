@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import '../css/register.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 // import shopingLogo from "../images/shopingLogo.png"
 
 function Register() {
 
+    let navigate = useNavigate()
+
+    let [loader, setLoader] = useState(false)
+
     let [newUser, setNewUser] = useState({
         name: '',
         email: '',
-        profile:'',
+        profile: '',
         password: ''
     })
     let [cnfPassword, setCnfPassword] = useState('')
@@ -22,16 +27,18 @@ function Register() {
 
     async function uploadProfile(value) {
         // console.log('value',value);
+        setLoader(true)
         let data1 = new FormData()
         data1.append('file', value)
         data1.append('upload_preset', 'Music_app')
         await axios.post(`https://api.cloudinary.com/v1_1/df78wetic/image/upload`, data1)
             .then((res) => {
                 console.log(res.data.secure_url)
-                setNewUser((data)=>({
+                setNewUser((data) => ({
                     ...data,
-                    profile:res.data.secure_url
+                    profile: res.data.secure_url
                 }))
+                setLoader(false)
             })
             .catch((error) => console.log(error))
     }
@@ -39,7 +46,10 @@ function Register() {
     async function submitData() {
         console.log(newUser);
         await axios.post('http://localhost:8000/api/register', newUser)
-            .then((res) => console.log(res.data))
+            .then((res) => {
+                console.log(res.data)
+                navigate('/login')
+            })
             .catch((error) => console.log(error))
     }
 
@@ -60,6 +70,9 @@ function Register() {
                     {/* <label htmlFor="">Select Song</label><br /> */}
                     <label htmlFor="album_pic" className='fileupload_lable'><i class="bi bi-cloud-arrow-up"></i> Upload profile</label><br />
                     <input type="file" id="album_pic" accept='image/*' onChange={(e) => uploadProfile(e.target.files[0])} />
+                    {loader && <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>}
                 </div>
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="floatingPassword" placeholder="Password" value={newUser.password} onChange={(e) => setData(e, "password")} />
@@ -73,7 +86,7 @@ function Register() {
                     <input class="btn btn-success" id="submitBtn" type="submit" value="Submit" onClick={submitData}></input>
                 </div>
                 <br />
-                <a href="#" style={{ marginLeft: '85px' }}>Have an account? login account</a>
+                <a href="#" style={{ marginLeft: '85px' }} onClick={() => navigate('/login')}>Have an account? login account</a>
             </div>
         </div>
     </>

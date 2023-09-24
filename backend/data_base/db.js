@@ -23,6 +23,7 @@ let songSchema=new mongoose.Schema({
     artist:{type:Array},
     poster:{type:String},
     song:{type:String},
+    rating:{type:Number,default:0}
 },{timestamps:true})
 
 let songModel=mongoose.model('song',songSchema)
