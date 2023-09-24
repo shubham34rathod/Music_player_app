@@ -40,7 +40,8 @@ router.post('/login',async(req,res)=>{
         }
         else
         {
-            res.status(402).json('user not exist')
+            // res.status(402).json('user not exist')
+            res.send('user not exist')
         }
     } 
     catch (error) 
@@ -56,8 +57,51 @@ router.post('/addSong',async(req,res)=>{
     {
         console.log(req.body);
         let newSong=new songModel(req.body)
-        // let addSong=await newSong.save()
-        // res.status(200).json(addSong)
+        let addSong=await newSong.save()
+        res.status(200).json(addSong)
+    } 
+    catch (error) 
+    {
+        res.status(500).json(error)
+    }
+})
+
+//get top 10 songs...............................
+
+router.get('/getSongs',async(req,res)=>{
+    try 
+    {
+        let songData=await songModel.find().sort({rating:-1}).limit(10)
+        res.status(200).json(songData)
+    } 
+    catch (error) 
+    {
+        res.status(500).json(error)
+    }
+})
+
+//get top 10 songs...............................
+
+router.get('/getAllSongs',async(req,res)=>{
+    try 
+    {
+        let songData=await songModel.find().sort({rating:-1})
+        res.status(200).json(songData)
+    } 
+    catch (error) 
+    {
+        res.status(500).json(error)
+    }
+})
+
+//get top 10 artist...............................
+
+router.get('/getTopArtist',async(req,res)=>{
+    try 
+    {
+        let songData=await songModel.find().sort({rating:-1})
+        res.status(200).json(songData)
+        // console.log('astist',songData);
     } 
     catch (error) 
     {
@@ -70,15 +114,45 @@ router.post('/addSong',async(req,res)=>{
 router.post('/newArtist',async(req,res)=>{
     try 
     {
-        console.log(req.body);
+        // console.log(req.body);
         let new_artist=new artistModel(req.body)
         let add_artist=await new_artist.save()
-        res.status(200).json(add_artist)
+        // res.status(200).json(add_artist)
     } 
     catch (error) 
     {
         res.status(500).json(error)
     }
 })
+
+// get artists..........................
+
+router.get('/artist',async(req,res)=>{
+    try 
+    {
+        let data=await artistModel.find()
+        res.status(200).json(data)
+    } 
+    catch (error) 
+    {
+        
+    }
+})
+
+//update song rating...................
+
+router.post('/updateRating/:id',async(req,res)=>{
+    try 
+    {
+        console.log(req.params.id);
+        console.log(req.body.rating);
+        let songData=await songModel.findByIdAndUpdate(req.params.id,{rating:req.body.rating},{new:true})
+    } 
+    catch (error) 
+    {
+        res.status(200).json(error)
+    }
+})
+
 
 module.exports=router

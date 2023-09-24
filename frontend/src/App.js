@@ -6,6 +6,7 @@ import AddSong from "./component/AddSong";
 import Login from "./component/Login";
 import Register from "./component/Register";
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import PlaySong from "./component/PlaySong";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                 <Route path="/addSong" element={<AddSong></AddSong>}></Route>
                 <Route path="/login" element={<Login></Login>}></Route>
                 <Route path="/register" element={<Register></Register>}></Route>
+                <Route path="/playSong" element={<PlaySong></PlaySong>}></Route>
             </Routes>
         </BrowserRouter>
 
